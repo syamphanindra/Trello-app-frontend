@@ -1,0 +1,80 @@
+
+<!-- {{#each model as |note|}}
+<div class="row">
+<div class="col-md-12 col-md-offset-2">
+<ul>
+  <h1>{{note.title}}</h1>
+  <h3>{{note.description}}</h3>
+  <bold>{{note.date}}</bold>
+</ul>
+</div>
+</div>
+{{/each}} -->
+<div class="container containers  ">
+  <div class="row col-md-12">
+
+ <div class="col-md-4">
+<div class="panel box container-color">
+  <div class="panel-heading">
+           <h3 class="panel-title">TODO</h3>
+         </div>
+<div class="panel-body scrollable-panel">
+{{#each model as |note|}}
+<div class="card" >
+    <ul class="list-group list-group-flush">
+
+  <li class="list-group-item description-overflow">    <label>Title: </label><br />{{note.title}}</li>
+  <li class="list-group-item description-overflow">    <label>Description: </label><br/>{{note.description}}</li>
+  <li class="list-group-item">    <label>Date: </label><br />{{note.date}}</li>
+</ul>
+</div>
+{{/each}}
+</div>
+</div>
+  </div>
+
+
+
+<div class="col-md-4">
+<div class="panel box container-color ">
+  <div class="panel-heading">
+           <h3 class="panel-title">DOING</h3>
+         </div>
+<div class="panel-body scrollable-panel ">
+{{#each model as |note|}}
+<div class="card" >
+    <ul class="list-group list-group-flush">
+  <li class="list-group-item"><label>Title: </label><br />{{note.title}}</li>
+  <li class="list-group-item"><label>Description: </label><br/>{{note.description}}</li>
+  <li class="list-group-item"><label>Date: </label><br />{{note.date}}</li>
+</ul>
+</div>
+{{/each}}
+
+</div>
+</div>
+</div>
+
+
+
+<div class="col-md-4">
+<div class="panel box container-color">
+  <div class="panel-heading">
+           <h3 class="panel-title">DONE</h3>
+         </div>
+<div class="panel-body scrollable-panel">
+{{#each model as |note|}}
+<div class="card" >
+    <ul class="list-group list-group-flush">
+  <li class="list-group-item"><label>Title: </label><br />{{note.title}}</li>
+  <li class="list-group-item"><label>Description: </label><br/>{{note.description}}</li>
+  <li class="list-group-item"><label>Date: </label><br />{{note.date}}</li>
+</ul>
+</div>
+{{/each}}
+
+</div>
+</div>
+</div>
+</div>
+</div>

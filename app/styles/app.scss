@@ -1,0 +1,54 @@
+@import "bootstrap";
+
+.padding-top{
+  padding-top: 15px;
+  background: black;
+  padding-bottom: 15px;
+
+}
+
+body{
+  background: #18E2CA  ;
+}
+
+.bt-space-left{
+  margin-left: 50px;
+}
+.padding-top-form{
+margin-top:18px;
+}
+.panel-heading{
+  color:red;
+
+}
+.panel-heading{
+
+  align-content: center;
+}
+.panel-title{
+  font-size: 22px;
+  padding-bottom: 2px;
+}
+.scrollable-panel{
+      height:300px;
+      overflow-y:scroll;
+      width:100%;
+      }
+.containers{
+
+  margin-top: 50px;
+ }
+ .card-prop{
+   width: 100px;
+     height: 100px;
+     float: left;
+     margin: 1em;
+ }
+ .container-color{
+   background: #99b3ff;
+ }
+ .description-overflow {
+   overflow-y: scroll;
+   height: 80px;
+
+ }

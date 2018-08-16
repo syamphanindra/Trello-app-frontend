@@ -1,5 +1,11 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
+<div class = "row padding-top">
+  <div class ="col-md-12 col-md-offset-1">
+    {{#link-to 'notes' class="btn btn-success btn-lg bt-space-left col-md-1"}}
+      View Notes
+    {{/link-to}}
+    {{#link-to 'new-note' class="btn btn-success btn-lg bt-space-left col-md-1"}}
+    New Note
+    {{/link-to}}
+  </div>
+</div>
 {{outlet}}
