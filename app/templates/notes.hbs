@@ -1,16 +1,5 @@
 
-<!-- {{#each model as |note|}}
-<div class="row">
-<div class="col-md-12 col-md-offset-2">
-<ul>
-  <h1>{{note.title}}</h1>
-  <h3>{{note.description}}</h3>
-  <bold>{{note.date}}</bold>
-</ul>
-</div>
-</div>
-{{/each}} -->
-<div class="container containers  ">
+<div class="container containers" id="container-id">
   <div class="row col-md-12">
 
  <div class="col-md-4">
@@ -19,16 +8,27 @@
            <h3 class="panel-title">TODO</h3>
          </div>
 <div class="panel-body scrollable-panel">
-{{#each model as |note|}}
-<div class="card" >
-    <ul class="list-group list-group-flush">
+{{#each  model as |note|}}
+<!-- {{log note.status}} -->
 
-  <li class="list-group-item description-overflow">    <label>Title: </label><br />{{note.title}}</li>
-  <li class="list-group-item description-overflow">    <label>Description: </label><br/>{{note.description}}</li>
-  <li class="list-group-item">    <label>Date: </label><br />{{note.date}}</li>
-</ul>
-</div>
+  <div class="card" >
+      <ul class="list-group list-group-flush  card-hover">
+    <li class="list-group-item description-overflow">    <label>Title: </label><br />{{note.title}}</li>
+    <li class="list-group-item description-overflow">    <label>Description: </label><br/>{{note.description}}</li>
+    <li class="list-group-item">    <label>Date: </label><br />{{note.date}}</li>
+  </ul>
+  </div>
 {{/each}}
+
+</div>
+
+<div class="bottom-data-entry">
+  <form id='myForm1'>
+{{input type="text" placeholder="title" value=title1 class="form-control"}}
+{{input type="textarea" placeholder="description" class="form-control" value=description1}}
+{{input type="date" placeholder="date" class="form-control" value=date1}}
+<button {{action 'sendData' title1 description1 date1 "todo"}} class="btn btn-lg btn-success bt-space-left">Create Note </button>
+</form>
 </div>
 </div>
   </div>
@@ -40,7 +40,7 @@
   <div class="panel-heading">
            <h3 class="panel-title">DOING</h3>
          </div>
-<div class="panel-body scrollable-panel ">
+<div class="panel-body scrollable-panel card-hover ">
 {{#each model as |note|}}
 <div class="card" >
     <ul class="list-group list-group-flush">
@@ -49,8 +49,20 @@
   <li class="list-group-item"><label>Date: </label><br />{{note.date}}</li>
 </ul>
 </div>
+
 {{/each}}
 
+</div>
+<div class="bottom-data-entry">
+
+
+
+<form id='myForm2'>
+{{input type="text" placeholder="title" value=title2 class="form-control"}}
+{{input type="textarea" placeholder="description" class="form-control" value=description2}}
+{{input type="date" placeholder="date" class="form-control" value=date2}}
+<button {{action 'sendData' title2 description2 date2 "doing"}} class="btn btn-lg btn-success bt-space-left">Create Note </button>
+</form>
 </div>
 </div>
 </div>
@@ -62,8 +74,10 @@
   <div class="panel-heading">
            <h3 class="panel-title">DONE</h3>
          </div>
-<div class="panel-body scrollable-panel">
+<div class="panel-body scrollable-panel card-hover">
 {{#each model as |note|}}
+
+
 <div class="card" >
     <ul class="list-group list-group-flush">
   <li class="list-group-item"><label>Title: </label><br />{{note.title}}</li>
@@ -71,10 +85,21 @@
   <li class="list-group-item"><label>Date: </label><br />{{note.date}}</li>
 </ul>
 </div>
+
 {{/each}}
 
 </div>
+<div class="bottom-data-entry">
+  <form id='myForm3'>
+{{input type="text" placeholder="title" value=title3 class="form-control"}}
+{{input type="textarea" placeholder="description" class="form-control" value=description3}}
+{{input type="date" placeholder="date" class="form-control" value=date3}}
+<button {{action 'sendData' title3 description3 date3 "done"}} class="btn btn-lg btn-success bt-space-left">Create Note </button>
+</form>
 </div>
 </div>
 </div>
+
+</div>
+
 </div>
