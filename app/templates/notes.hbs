@@ -5,11 +5,12 @@
  <div class="col-md-4">
 <div class="panel box container-color">
   <div class="panel-heading">
+
            <h3 class="panel-title">TODO</h3>
          </div>
 <div class="panel-body scrollable-panel">
-{{#each  model as |note|}}
-<!-- {{log note.status}} -->
+{{#each filteredModel1 as |note|}}
+{{log note.status}}
 
   <div class="card" >
       <ul class="list-group list-group-flush  card-hover">
@@ -17,6 +18,10 @@
     <li class="list-group-item description-overflow">    <label>Description: </label><br/>{{note.description}}</li>
     <li class="list-group-item">    <label>Date: </label><br />{{note.date}}</li>
   </ul>
+  </div>
+  {{else}}
+  <div>
+
   </div>
 {{/each}}
 
@@ -41,7 +46,7 @@
            <h3 class="panel-title">DOING</h3>
          </div>
 <div class="panel-body scrollable-panel card-hover ">
-{{#each model as |note|}}
+{{#each filteredModel2 as |note|}}
 <div class="card" >
     <ul class="list-group list-group-flush">
   <li class="list-group-item"><label>Title: </label><br />{{note.title}}</li>
@@ -49,7 +54,10 @@
   <li class="list-group-item"><label>Date: </label><br />{{note.date}}</li>
 </ul>
 </div>
+{{else}}
+<div>
 
+</div>
 {{/each}}
 
 </div>
@@ -74,8 +82,9 @@
   <div class="panel-heading">
            <h3 class="panel-title">DONE</h3>
          </div>
+
 <div class="panel-body scrollable-panel card-hover">
-{{#each model as |note|}}
+{{#each filteredModel3 as |note|}}
 
 
 <div class="card" >
@@ -85,7 +94,10 @@
   <li class="list-group-item"><label>Date: </label><br />{{note.date}}</li>
 </ul>
 </div>
+{{else}}
+<div>
 
+</div>
 {{/each}}
 
 </div>

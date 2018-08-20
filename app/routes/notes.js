@@ -8,8 +8,8 @@ export default Route.extend({
   }
 },
   model()  {
-     let l= this.store.findAll('note');
-     console.log(l)
-     return l;
-   }
+     return this.store.findAll('note');
+
+   },
+
 });

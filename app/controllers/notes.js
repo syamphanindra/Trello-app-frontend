@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import Ember from 'ember';
+import EmberObject, { computed } from '@ember/object'; 
 import $ from 'jquery';
 export default Controller.extend({
   queryParams: ['parameter'],
@@ -19,5 +20,15 @@ document.getElementById("myForm2").reset();
 document.getElementById("myForm3").reset();
 },
 
-}
+},
+filteredModel1: computed('model.length', 'selectedStatus', function() {
+  return this.get('model').filterBy('status', "todo");
+}),
+filteredModel2: computed('model.length', 'selectedStatus', function() {
+  return this.get('model').filterBy('status', "doing");
+}),
+filteredModel3: computed('model.length', 'selectedStatus', function() {
+  return this.get('model').filterBy('status', "done");
+})
+
 });
