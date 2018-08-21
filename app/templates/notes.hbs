@@ -10,15 +10,30 @@
          </div>
 <div class="panel-body scrollable-panel">
 {{#each filteredModel1 as |note|}}
-{{log note.status}}
+<!-- {{log note.id}} -->
 
   <div class="card" >
       <ul class="list-group list-group-flush  card-hover">
     <li class="list-group-item description-overflow">    <label>Title: </label><br />{{note.title}}</li>
     <li class="list-group-item description-overflow">    <label>Description: </label><br/>{{note.description}}</li>
     <li class="list-group-item">    <label>Date: </label><br />{{note.date}}</li>
+    <p>
+
+    <div class="dropdown">
+      <button  class="list-group-item"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <label>Change Status :</label> {{note.status}}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <p><a class="dropdown-item" {{action 'updateNote' "doing" note.id}}>DOING</a></p>
+        <p><a class="dropdown-item"{{action 'updateNote' "done" note.id}}>DONE</a></p>
+        <p><a class="dropdown-item"{{action 'deleteNote'  note.id}}>DELETE</a></p>
+      </div>
+    </div>
+
+</p>
   </ul>
   </div>
+
   {{else}}
   <div>
 
@@ -52,6 +67,23 @@
   <li class="list-group-item"><label>Title: </label><br />{{note.title}}</li>
   <li class="list-group-item"><label>Description: </label><br/>{{note.description}}</li>
   <li class="list-group-item"><label>Date: </label><br />{{note.date}}</li>
+
+
+  <p>
+
+  <div class="dropdown">
+    <button  class="list-group-item"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <label>Change Status :</label> {{note.status}}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <p><a class="dropdown-item" {{action 'updateNote' "todo" note.id}}>TODO</a></p>
+      <p><a class="dropdown-item"{{action 'updateNote' "done" note.id}}>DONE</a></p>
+      <p><a class="dropdown-item"{{action 'deleteNote'  note.id}}>DELETE</a></p>
+    </div>
+  </div>
+
+</p>
+
 </ul>
 </div>
 {{else}}
@@ -92,6 +124,22 @@
   <li class="list-group-item"><label>Title: </label><br />{{note.title}}</li>
   <li class="list-group-item"><label>Description: </label><br/>{{note.description}}</li>
   <li class="list-group-item"><label>Date: </label><br />{{note.date}}</li>
+
+  <p>
+
+  <div class="dropdown">
+    <button  class="list-group-item"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <label>Change Status :</label> {{note.status}}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <p><a class="dropdown-item" {{action 'updateNote' "todo" note.id}}>TODO</a></p>
+      <p><a class="dropdown-item"{{action 'updateNote' "doing" note.id}}>DOING</a></p>
+      <p><a class="dropdown-item"{{action 'deleteNote'  note.id}}>DELETE</a></p>
+    </div>
+  </div>
+
+</p>
+
 </ul>
 </div>
 {{else}}

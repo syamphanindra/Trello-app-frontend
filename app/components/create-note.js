@@ -7,7 +7,7 @@ export default Component.extend({
 },
 status2:Ember.inject.service('work-status'),
   actions: {
-    sendData(title1,description1,date1) {
+    sendData(title1,description1,date1,status3) {
       function accept(res)
 {
 get(this,'layout.referrer.owner.router').transitionTo('notes');
@@ -34,8 +34,8 @@ console.log()
   //       console.log(err);
   //     });
     //this.layout.referrer.owner.router
-  
-    var request = $.post("/notes", {note:{title:title1,description:description1,date:date1,status:status1.getProperty()}})
+
+    var request = $.post("/notes", {note:{title:title1,description:description1,date:date1,status:status3}})
    request.then(accept.bind(this), failure.bind(this));
 console.log(this.layout.referrer.owner.router,"out")
 

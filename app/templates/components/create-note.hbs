@@ -17,4 +17,14 @@
 
 </div>
 </div>
-<button {{action 'sendData' title description date}} class="btn btn-lg btn-success bt-space-left">Create Note </button>
+<div class="row form-group">
+  <label  class="col-sm-2 control-label">Date</label>
+  <div class="col-sm-2">
+<select class="selectpicker">
+  <option value=selectedoption>TODO</option>
+  <option value=selectedoption>DOING</option>
+  <option value=selectedoption>DONE</option>
+</select>
+</div>
+</div>
+<button {{action 'sendData' title description date selectedoption}} class="btn btn-lg btn-success bt-space-left">Create Note </button>
