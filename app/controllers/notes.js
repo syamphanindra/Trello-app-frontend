@@ -19,15 +19,19 @@ document.getElementById("myForm1").reset();
 document.getElementById("myForm2").reset();
 document.getElementById("myForm3").reset();
 },
-updateNote(upstatus,id){
+updateNote(upstatus,note){
 let status1 = Ember.get(this,'status2');
-status1.makeputrequest(upstatus,id);
+status1.makeputrequest(upstatus, note.id);
 this.toggleProperty('parameter');
+note.set('status',upstatus)
 },
 deleteNote(id){
   let status1 = Ember.get(this,'status2');
   status1.makedeleterequest(id);
   this.toggleProperty('parameter');
+  const l="#card-id-"+id;
+  console.log(l);
+  $(l).hide();
 }
 },
 filteredModel1: computed('model.length', 'selectedStatus', function() {
