@@ -2,14 +2,20 @@
 
 .padding-top{
   padding-top: 15px;
-  background: black;
+
   padding-bottom: 15px;
 
+}
+.color-top{
+    background-image: url("https://www.tabithashairstudio.com/bg-2b-281949.jpeg?u=2609548982");
+  background-repeat: repeat;
 }
 
 body{
 //  background: #00c07f;;  ;
 background: #6599FF ;
+background-image: url('https://jumbotech.net/wp-content/uploads/2016/03/7-Best-Pattern-of-Background-Images-for-Websites-1-Dark-Wood.jpg');
+background-repeat: repeat;
 }
 
 .bt-space-left{
@@ -37,6 +43,7 @@ margin-top:18px;
       height:300px;
       overflow-y:scroll;
       width:100%;
+
       }
 .containers{
 
@@ -62,4 +69,10 @@ margin-top:18px;
   padding-right: 15px;
   padding-bottom: 6px;
   background: #FF3333;
+  background-image: url("https://www.desktopbackground.org/p/2013/12/05/680424_light-blue-background-images-for-websites-hd_800x600_h.jpg");
+  background-repeat: repeat;
+}
+.panel{
+        background-image: url("https://pre00.deviantart.net/402c/th/pre/i/2010/191/3/b/blue_website_background___psd_by_fisher_12.jpg");
+        background-repeat: repeat;
 }

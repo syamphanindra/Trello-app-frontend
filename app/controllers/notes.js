@@ -5,6 +5,9 @@ import $ from 'jquery';
 export default Controller.extend({
   queryParams: ['parameter'],
  parameter: false,
+toggel(){
+   this.toggleProperty('parameter');
+ },
   status2:Ember.inject.service('work-status'),
   actions: {
     sendData(title1,description1,date1,status) {
@@ -12,7 +15,7 @@ export default Controller.extend({
 let status1 = Ember.get(this,'status2');
 status1.makepostrequest(title1,description1,date1,status);
 //this is toggle the model and rendering again
-this.toggleProperty('parameter');
+this.toggel();
 //This is to refresh the submit form so you can submit freshly
 //$("#container-id").html($("#container-id").html());
 document.getElementById("myForm1").reset();
@@ -24,6 +27,7 @@ let status1 = Ember.get(this,'status2');
 status1.makeputrequest(upstatus, note.id);
 this.toggleProperty('parameter');
 note.set('status',upstatus)
+this.toggel();
 },
 deleteNote(id){
   let status1 = Ember.get(this,'status2');

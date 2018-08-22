@@ -11,5 +11,8 @@ export default Route.extend({
      return this.store.findAll('note');
 
    },
+   aftermodel(){
+     return this.store.findAll('note')
+   }
 
 });
