@@ -1,6 +1,9 @@
 //The file is in app/routes/notes.js
 import Route from '@ember/routing/route';
 import Ember from 'ember'
+const {
+  RSVP:{hash}
+} = Ember;
 export default Route.extend({
   queryParams: {
   parameter: {
@@ -8,11 +11,12 @@ export default Route.extend({
   }
 },
   model()  {
-     return this.store.findAll('note');
+     return hash({
+      notes : this.store.findAll('note')
+  }
+  )
 
    },
-   aftermodel(){
-     return this.store.findAll('note')
-   }
+
 
 });

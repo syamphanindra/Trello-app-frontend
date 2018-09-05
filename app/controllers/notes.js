@@ -2,18 +2,26 @@ import Controller from '@ember/controller';
 import Ember from 'ember';
 import EmberObject, { computed } from '@ember/object';
 import $ from 'jquery';
+const {
+  get,
+
+  inject: {service}
+} = Ember;
 export default Controller.extend({
   queryParams: ['parameter'],
  parameter: false,
 toggel(){
    this.toggleProperty('parameter');
- },
+ },store: service(),
   status2:Ember.inject.service('work-status'),
   actions: {
     sendData(title1,description1,date1,status) {
 
 let status1 = Ember.get(this,'status2');
-status1.makepostrequest(title1,description1,date1,status);
+//status1.makepostrequest(title1,description1,date1,status);
+let rec = this.store.createRecord('note',{ title: title1,description: description1,date:date1,status:status});
+rec.save().then(()=> {this.toggleProperty('parameter');});
+
 //this is toggle the model and rendering again
 this.toggel();
 //This is to refresh the submit form so you can submit freshly
@@ -23,35 +31,43 @@ document.getElementById("myForm2").reset();
 document.getElementById("myForm3").reset();
 },
 updateNote(upstatus,note){
-let status1 = Ember.get(this,'status2');
-status1.makeputrequest(upstatus, note.id);
-this.toggleProperty('parameter');
-note.set('status',upstatus)
-this.toggel();
+
+this.store.findRecord('note',note.id).then(function(note){
+  note.set('status',upstatus);
+  note.save();
+})
+ this.toggel();
 },
 deleteNote(id){
-  let status1 = Ember.get(this,'status2');
-  status1.makedeleterequest(id);
-  this.toggleProperty('parameter');
-  const l="#card-id-"+id;
-  console.log(l);
-  $(l).hide();
+
+    this.store.findRecord('note',id).then(function(note){
+    note.destroyRecord();
+  });
+
 }
 },
-filteredModel1: computed('model.length', 'selectedStatus', function() {
-  return this.get('model').filterBy('status', "todo");
+filteredModel1: computed('model.notes.length', 'selectedStatus', function() {
+  return this.get('model.notes').filterBy('status', "todo");
   this.toggleProperty('parameter');
 
 }),
-filteredModel2: computed('model.length', 'selectedStatus', function() {
-  return this.get('model').filterBy('status', "doing");
+filteredModel2: computed('model.notes.length', 'selectedStatus', function() {
+  return this.get('model.notes').filterBy('status', "doing");
   this.toggleProperty('parameter');
 }),
 
-filteredModel3: computed('model.length', 'selectedStatus', function() {
-  return this.get('model').filterBy('status', "done");
+filteredModel3: computed('model.notes.length', 'selectedStatus', function() {
+  return this.get('model.notes').filterBy('status', "done");
   this.toggleProperty('parameter');
 }),
 
 
 });
+
+// let status1 = Ember.get(this,'status2');
+// status1.makedeleterequest(id);
+
+// this.toggleProperty('parameter');
+// const l="#card-id-"+id;
+// console.log(l);
+// $(l).hide();

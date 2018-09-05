@@ -20,11 +20,12 @@
 <div class="row form-group ">
   <label  class="col-sm-2 control-label font-color-form" >STATUS</label>
   <div class="col-sm-2">
-<select class="selectpicker">
-  <option value=selectedoption>TODO</option>
-  <option value=selectedoption>DOING</option>
-  <option value=selectedoption>DONE</option>
+    <select onchange={{action "setSelection" value="target.value"}}>
+ <option disabled selected> Select Status</option>
+    <option value="todo" >todo</option>
+    <option value="doing">doing</option>
+      <option value="done">done</option>
 </select>
 </div>
 </div>
-<button {{action 'sendData' title description date selectedoption}} class="btn btn-lg btn-success bt-space-left">Create Note </button>
+<button {{action 'sendData' title description date  }} class="btn btn-lg btn-success bt-space-left">Create Note </button>

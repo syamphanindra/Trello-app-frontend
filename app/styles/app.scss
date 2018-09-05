@@ -1,9 +1,12 @@
 @import "bootstrap";
-
+$size : 15px;
+$text-color : red;
+$background1 :#FF3333;
+$body-backgroud : #6599FF ;
 .padding-top{
-  padding-top: 15px;
+  padding-top: $size;
 
-  padding-bottom: 15px;
+  padding-bottom: $size;
 
 }
 .color-top{
@@ -13,7 +16,7 @@
 
 body{
 //  background: #00c07f;;  ;
-background: #6599FF ;
+background: $body-backgroud;
 background-image: url('https://jumbotech.net/wp-content/uploads/2016/03/7-Best-Pattern-of-Background-Images-for-Websites-1-Dark-Wood.jpg');
 background-repeat: repeat;
 }
@@ -25,7 +28,7 @@ background-repeat: repeat;
 margin-top:18px;
 }
 .panel-heading{
-  color:red;
+  color:$text-color ;
 
 }
 .card-hover :hover {
@@ -68,7 +71,7 @@ margin-top:18px;
   padding-left:15px;
   padding-right: 15px;
   padding-bottom: 6px;
-  background: #FF3333;
+  background: $background1;
   background-image: url("https://www.desktopbackground.org/p/2013/12/05/680424_light-blue-background-images-for-websites-hd_800x600_h.jpg");
   background-repeat: repeat;
 }
@@ -77,6 +80,6 @@ margin-top:18px;
         background-repeat: repeat;
 }
 .font-color-form{
-color:red;
+color:$text-color;
 font-size:16px;
 }
