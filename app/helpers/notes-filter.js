@@ -3,12 +3,9 @@ import { filter } from '@ember/object/computed';
 import EmberObject from '@ember/object';
 
 
-export function notesFilter(params) {
+export function notesFilter([a,b]) {
+return a+b;
 
-let r= params.content;
-console.log(r)
-
-return params;
 }
 
 export default helper(notesFilter);

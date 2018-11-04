@@ -13,6 +13,7 @@ export default Route.extend({
   model()  {
      return hash({
       notes : this.store.findAll('note')
+
   }
   )
 

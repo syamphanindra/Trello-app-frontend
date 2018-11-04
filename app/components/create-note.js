@@ -17,14 +17,14 @@ status2:Ember.inject.service('work-status'),
     console.log(this.get('selectedOption'))
   },
     sendData(title1,description1,date1,status3) {
-      function accept(res)
-{
-get(this,'layout.referrer.owner.router').transitionTo('notes');
-}
-function failure(err)
-{
-
-}
+//       function accept(res)
+// {
+// get(this,'layout.referrer.owner.router').transitionTo('notes');
+// }
+// function failure(err)
+// {
+//
+// }
 let status1 = Ember.get(this,'status2');
 status1.setProperty('done');
 console.log()

@@ -1,165 +1,28 @@
-
 <div class="container containers" id="container-id">
-  <div class="row col-md-12">
-
- <div class="col-md-4">
+<div class="row col-md-12">
+<div class="col-md-4">
 <div class="panel box container-color">
-  <div class="panel-heading">
-
-           <h3 class="panel-title">TODO</h3>
-         </div>
-<div class="panel-body scrollable-panel" id="panel-id">
-{{#each filteredModel1 as |note|}}
-<!-- {{log note.id}} -->
-
-  <div class="card" id="card-id-{{note.id}}">
-      <ul class="list-group list-group-flush  card-hover">
-    <li class="list-group-item description-overflow">    <label>Title: </label><br />{{note.title}}</li>
-    <li class="list-group-item description-overflow">    <label>Description: </label><br/>{{note.description}}</li>
-    <li class="list-group-item">    <label>Date: </label><br />{{note.date}}</li>
-    <p>
-
-    <div class="dropdown">
-      <button  class="list-group-item"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <label>Change Status :</label> {{note.status}}
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <p><a class="dropdown-item" {{action 'updateNote' "doing" note}}>DOING</a></p>
-        <p><a class="dropdown-item"{{action 'updateNote' "done" note}}>DONE</a></p>
-        <p><a class="dropdown-item"{{action 'deleteNote'  note.id}}>DELETE</a></p>
-      </div>
-    </div>
-
-</p>
-  </ul>
-  </div>
-
-  {{else}}
-  <div>
-
-  </div>
-{{/each}}
-
+<div class="panel-heading">
+<h3 class="panel-title">TODO</h3>
 </div>
-
-<div class="bottom-data-entry">
-  <form id='myForm1'>
-{{input type="text" placeholder="title" value=title1 class="form-control"}}
-{{input type="textarea" placeholder="description" class="form-control" value=description1}}
-{{input type="date" placeholder="date" class="form-control" value=date1}}
-<button {{action 'sendData' title1 description1 date1 "todo"}} class="btn btn-lg btn-success bt-space-left">Create Note </button>
-</form>
+{{note-card  filteredModel=model.notes getstatus="todo" }}
 </div>
 </div>
-  </div>
-
-
-
 <div class="col-md-4">
 <div class="panel box container-color ">
-  <div class="panel-heading">
-           <h3 class="panel-title">DOING</h3>
-         </div>
-<div class="panel-body scrollable-panel card-hover ">
-{{#each filteredModel2 as |note|}}
-<div class="card" id="card-id-{{note.id}}">
-    <ul class="list-group list-group-flush">
-  <li class="list-group-item"><label>Title: </label><br />{{note.title}}</li>
-  <li class="list-group-item"><label>Description: </label><br/>{{note.description}}</li>
-  <li class="list-group-item"><label>Date: </label><br />{{note.date}}</li>
-
-
-  <p>
-
-  <div class="dropdown">
-    <button  class="list-group-item"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <label>Change Status :</label> {{note.status}}
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <p><a class="dropdown-item" {{action 'updateNote' "todo" note}}>TODO</a></p>
-      <p><a class="dropdown-item"{{action 'updateNote' "done" note}}>DONE</a></p>
-      <p><a class="dropdown-item"{{action 'deleteNote'  note.id}}>DELETE</a></p>
-    </div>
-  </div>
-
-</p>
-
-</ul>
+<div class="panel-heading">
+<h3 class="panel-title">DOING</h3>
 </div>
-{{else}}
-<div>
-
-</div>
-{{/each}}
-
-</div>
-<div class="bottom-data-entry">
-
-
-
-<form id='myForm2'>
-{{input type="text" placeholder="title" value=title2 class="form-control"}}
-{{input type="textarea" placeholder="description" class="form-control" value=description2}}
-{{input type="date" placeholder="date" class="form-control" value=date2}}
-<button {{action 'sendData' title2 description2 date2 "doing"}} class="btn btn-lg btn-success bt-space-left">Create Note </button>
-</form>
+{{note-card filteredModel=model.notes  getstatus="doing"}}
 </div>
 </div>
-</div>
-
-
-
 <div class="col-md-4">
 <div class="panel box container-color">
-  <div class="panel-heading">
-           <h3 class="panel-title">DONE</h3>
-         </div>
-
-<div class="panel-body scrollable-panel card-hover">
-{{#each filteredModel3 as |note|}}
-
-
-<div class="card" id="card-id-{{note.id}}">
-    <ul class="list-group list-group-flush">
-  <li class="list-group-item"><label>Title: </label><br />{{note.title}}</li>
-  <li class="list-group-item"><label>Description: </label><br/>{{note.description}}</li>
-  <li class="list-group-item"><label>Date: </label><br />{{note.date}}</li>
-
-  <p>
-
-  <div class="dropdown">
-    <button  class="list-group-item"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <label>Change Status :</label> {{note.status}}
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <p><a class="dropdown-item" {{action 'updateNote' "todo" note}}>TODO</a></p>
-      <p><a class="dropdown-item"{{action 'updateNote' "doing" note}}>DOING</a></p>
-      <p><a class="dropdown-item"{{action 'deleteNote'  note.id }}>DELETE</a></p>
-    </div>
-  </div>
-
-</p>
-
-</ul>
+<div class="panel-heading">
+<h3 class="panel-title">DONE</h3>
 </div>
-{{else}}
-<div>
-
-</div>
-{{/each}}
-
-</div>
-<div class="bottom-data-entry">
-  <form id='myForm3'>
-{{input type="text" placeholder="title" value=title3 class="form-control"}}
-{{input type="textarea" placeholder="description" class="form-control" value=description3}}
-{{input type="date" placeholder="date" class="form-control" value=date3}}
-<button {{action 'sendData' title3 description3 date3 "done"}} class="btn btn-lg btn-success bt-space-left">Create Note </button>
-</form>
+{{note-card  filteredModel=model.notes  getstatus="done"}}
 </div>
 </div>
 </div>
-
-</div>
-
 </div>
